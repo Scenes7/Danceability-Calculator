@@ -1,4 +1,3 @@
-
 from flask import Flask, request, render_template
 from flask_cors import CORS
 import get_tempo as get_tempo
@@ -12,20 +11,14 @@ app = Flask(__name__)
 CORS(app)
 
 def convert_to_wav(mp3_file_path, wav_file_path):
-    # Load the MP3 file
     audio = AudioSegment.from_mp3(mp3_file_path)
 
-    # Export the audio as WAV file
     audio.export(wav_file_path, format='wav')
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
-    # if 'file' not in request.files:
-    #     return 'No file part in the request', 400
 
     file = request.files['file']
-    # if file.filename == '':
-    #     return 'No selected file', 400
     fileResult = check_if_wav(file.filename)
     if file and fileResult:
         song_path = file.filename
@@ -44,7 +37,7 @@ def upload_file():
         rating = round(max(0.7*(-0.02*(bpm*bpm-160*bpm+6400)+100), 0) + max(min(30*(stability/16), 30), 0))
 
         os.remove(song_path)
-        return f'{bpm}|{round(100*(stability/16))}|{rating}', 200
+        return f'{bpm}|{min(100, round(100*(stability/16)))}|{rating}', 200
 
     return 'Invalid file type', 415
 

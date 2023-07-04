@@ -36,7 +36,6 @@ form.addEventListener('submit', handleFormSubmit);
 
 form.addEventListener('change', () => {
   browseBtn.innerHTML = finput.files[0].name
-  console.log(finput.files)
 })
 
 function postWavFile(url, file, callback) {
@@ -66,23 +65,19 @@ function handleFormSubmit(event) {
   errorp.style.color = 'black';
   errorp.style.display = 'block';
   errorp.innerHTML = "Processing...";
-  console.log("A")
-  let url = "http://127.0.0.1:5000/upload";
+  let url = "https://scenes.pythonanywhere.com/upload";
   let fileInput = document.getElementById("selectFile");
   if (fileInput.files[0] == null) {
     errorp.style.color = 'darkred';
     afterSubmit('*select a mp3 or wav file')
     return
   }
-  console.log("A")
   var file = fileInput.files[0]
-  console.log("F")
   postWavFile(url, file, function (error, response) {
     errorp.style.color = 'darkred';
     errorp.style.display = 'none';
     errorp.innerHTML = "";
     if (response != 200) {
-      console.log(error, response, " FFG", Object.keys(error))
       if (response == 415) afterSubmit('file must be of type mp3 or wav')
       else if (response == 413) afterSubmit('Song must be under 10 minutes')
       else afterSubmit('something went wrong, try again later')
@@ -91,7 +86,6 @@ function handleFormSubmit(event) {
       displayResults(error);
     }
   });
-  console.log("G")
 }
 
 const sleep = ms => new Promise(async r => setTimeout(r, ms));
