@@ -27,7 +27,6 @@
 
 body {
   background-color: rgb(105, 105, 105);
-  /* background-color: rgb(150, 150, 150); */
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
     Arial, sans-serif;
 }
@@ -35,7 +34,6 @@ body {
 #browseButton {
   background-color: rgb(254, 216, 177);
   border: none;
-  /* border-radius: 25px; */
   color: black;
   padding: 15px 32px;
   text-align: center;

@@ -110,7 +110,6 @@ async function numberAnimation(obj, target, idx) {
 }
 async function displayResults(responseString) {
   let results = responseString.split('|');
-  // results[2] = 85; results[1] = 55
   for (let i = 0; i<3; i++) {
     titlesObj[i].style.display = "block";
     titlesObj[i].classList.add('fade');

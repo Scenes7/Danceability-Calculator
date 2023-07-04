@@ -1,5 +1,5 @@
 
-from flask import Flask, request
+from flask import Flask, request, render_template
 from flask_cors import CORS
 import get_tempo as get_tempo
 import tempo_stability as tempo_stability
@@ -28,7 +28,7 @@ def upload_file():
     #     return 'No selected file', 400
     fileResult = check_if_wav(file.filename)
     if file and fileResult:
-        song_path = f"project/uploaded_music/{file.filename}"
+        song_path = file.filename
         file.save(song_path)
 
         if (fileResult == 2):
@@ -56,5 +56,9 @@ def check_if_wav(filename):
     if (suf == accepted[0]): return 1
     elif (suf == accepted[1]): return 2
 
+@app.route('/')
+def home():
+    return render_template('index.html')
+
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run()
