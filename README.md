@@ -1,2 +1,2 @@
 # Danceability-Calculator
-audio anaysis done with aubio and librosa.
+The audio anaysis was done with aubio and librosa.
