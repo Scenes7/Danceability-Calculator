@@ -1,0 +1,5 @@
+aubio>=0.4.9
+librosa>=0.10.0.post2
+Flask-Cors>=3.0.10
+pydub>=0.25.1
+ffmpeg>=1.4
