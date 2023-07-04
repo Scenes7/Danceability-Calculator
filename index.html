@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="index.css">
+
+<head>
+  <title>Danceability Calculator</title>
+</head>
+
+<body>
+  <h1 class="titleText">Danceability Calculator</h1>
+  <div class="uploadBox">
+    <button id="browseButton">No File Selected</button>
+    <form id="uploadForm" enctype="multipart/form-data">
+      <input type="file" id="selectFile" style="display: none;" />
+      <button type="submit"><img src="https://static.thenounproject.com/png/405954-200.png" alt="upload"
+        style="height: 50px; width: 50px; display: flex" /></button>
+      </form>
+    </div>
+    <p id="error">
+    </p>
+    <div class="resultsDiv">
+      
+      <p class="metricsTitle" id="bpmTitle">
+        Estimated BPM
+      </p>
+      <p class="metrics" id="bpmResult">
+        132
+      </p>
+      <p class="metricsTitle" id="tempoTitle">
+        Estimated Tempo Stability
+      </p>
+      <p class="metrics" id="tempoResult">
+        50%
+      </p>
+      <p class="metrics" id="ratingTitle">
+        Danceability Rating
+      </p>
+      <h2 class="result" id="ratingResult">
+        100%
+      </h2>
+      
+    </div>
+    <div id="infoDiv">
+      <div class="header">
+        <h2 style="transform: translate(120%, 0%);">What Is This?</h2>
+        <button id="closeButton">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Transparent_X.png" style="height: 30%;">
+        </button>
+      </div>
+      <br>
+      This calcualtor computes how suited a song is for slow dancing. Keep in mind that such a score is subjective; just because this calcualtor scores a song poorly doesn't mean it isn't danceable.
+      <br>
+      <br>
+      Some Things to Keep in Mind<br>
+      -file must be of type mp3 or wav<br>
+      -length of song must be under 10 minutes<br/>
+      -song's time signature must be in common time (4/4)
+    </div>
+    <button id="openButton">
+      <img src="https://img.uxwing.com/wp-content/themes/uxwing/download/web-app-development/question-mark-circle-icon.png" style="width: 50px">
+    </button>
+    
+    <script src="scripts.js"></script>
+  </body>
+  
+  </html>
+  
+  <!--C:\Users\sean h\Downloads\test_api\getting-started-with-hubspot-apis\hubspot_api-->
