@@ -44,7 +44,7 @@ def upload_file():
         rating = round(max(0.7*(-0.02*(bpm*bpm-160*bpm+6400)+100), 0) + max(min(30*(stability/16), 30), 0))
 
         os.remove(song_path)
-        return f'{bpm}|{stability}|{rating}', 200
+        return f'{bpm}|{round(100*(stability/16))}|{rating}', 200
 
     return 'Invalid file type', 415
 
